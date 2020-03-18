@@ -1,0 +1,32 @@
+{
+  "name": "liguangchun/bt",
+  "description": "Api for BT",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Chaim",
+      "email": "gc@dtapp.net",
+      "homepage": "https://www.liguangchun.cn"
+    }
+  ],
+  "homepage": "https://www.liguangchun.cn",
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "LiGuAngChUn\\Bt\\": "src"
+    }
+  },
+  "repositories": {
+    "0": {
+      "type": "composer",
+      "url": "https://packagist.liguangchun.cn"
+    },
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/"
+    }
+  }
+}
