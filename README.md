@@ -4,10 +4,10 @@
 
 📦 宝塔Api接口 PHP扩展包
 
-[![Latest Stable Version](https://poser.pugx.org/liguangchun/bt/v/stable)](https://packagist.dtapp.net/#liguangchun/bt) 
-[![Latest Unstable Version](https://poser.pugx.org/liguangchun/bt/v/unstable)](https://packagist.dtapp.net/#liguangchun/bt) 
-[![Total Downloads](https://poser.pugx.org/liguangchun/bt/downloads)](https://packagist.dtapp.net/#liguangchun/bt) 
-[![License](https://poser.pugx.org/liguangchun/bt/license)](https://packagist.dtapp.net/#liguangchun/bt)
+[![Latest Stable Version](https://poser.pugx.org/liguangchun/bt/v/stable)](https://packagist.org/packages/liguangchun/ip) 
+[![Latest Unstable Version](https://poser.pugx.org/liguangchun/bt/v/unstable)](https://packagist.org/packages/liguangchun/ip) 
+[![Total Downloads](https://poser.pugx.org/liguangchun/bt/downloads)](https://packagist.org/packages/liguangchun/ip) 
+[![License](https://poser.pugx.org/liguangchun/bt/license)](https://packagist.org/packages/liguangchun/ip)
 
 ## 依赖环境
 
@@ -19,10 +19,6 @@
 
 ```text
 "repositories": {
-        "0": {
-            "type": "composer",
-            "url": "https://packagist.liguangchun.cn"
-        },
         "packagist": {
             "type": "composer",
             "url": "https://mirrors.aliyun.com/composer/"
