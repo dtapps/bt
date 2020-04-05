@@ -10,7 +10,7 @@ class BaseBt
     /**
      * 定义当前版本
      */
-    const VERSION = '1.0.3';
+    const VERSION = '1.0.4';
 
     /**
      * 配置
@@ -41,8 +41,9 @@ class BaseBt
     {
         $p_data = $this->GetKeyData();
         //定义cookie保存位置
-        $cookie_file = __DIR__ . '/../cookie/' . md5($this->config->get('panel')) . '.cookie';
-        is_dir($cookie_file) OR mkdir($cookie_file, 0777, true);
+        $file = __DIR__ . '/../cookie/';
+        $cookie_file = $file . md5($this->config->get('panel')) . '.cookie';
+        is_dir($file) OR mkdir($file, 0777, true);
         if (!file_exists($cookie_file)) {
             $fp = fopen($cookie_file, 'w+');
             fclose($fp);
