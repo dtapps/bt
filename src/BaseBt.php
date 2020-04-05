@@ -42,6 +42,7 @@ class BaseBt
         $p_data = $this->GetKeyData();
         //定义cookie保存位置
         $cookie_file = __DIR__ . '/../cookie/' . md5($this->config->get('panel')) . '.cookie';
+        is_dir($cookie_file) OR mkdir($cookie_file, 0777, true);
         if (!file_exists($cookie_file)) {
             $fp = fopen($cookie_file, 'w+');
             fclose($fp);
