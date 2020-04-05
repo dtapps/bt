@@ -32,6 +32,8 @@ class Firewall extends BaseBt
         $result = $this->HttpPostCookie($url, $p_data);
         //解析JSON数据
         $data = json_decode($result, true);
+        if (empty($data['data'])) $data['data'] = [];
+        if (empty($data['page'])) $data['page'] = 0;
         return [
             'data' => $data['data'],
             'count' => $this->getCountData($data['page'])
@@ -57,6 +59,8 @@ class Firewall extends BaseBt
         $result = $this->HttpPostCookie($url, $p_data);
         //解析JSON数据
         $data = json_decode($result, true);
+        if (empty($data['data'])) $data['data'] = [];
+        if (empty($data['page'])) $data['page'] = 0;
         return [
             'data' => $data['data'],
             'count' => $this->getCountData($data['page'])
