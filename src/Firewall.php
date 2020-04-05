@@ -34,6 +34,7 @@ class Firewall extends BaseBt
         $data = json_decode($result, true);
         if (empty($data['data'])) $data['data'] = [];
         if (empty($data['page'])) $data['page'] = 0;
+        if (!is_array($data['data'])) $data['data'] = [];
         return [
             'data' => $data['data'],
             'count' => $this->getCountData($data['page'])
@@ -61,6 +62,7 @@ class Firewall extends BaseBt
         $data = json_decode($result, true);
         if (empty($data['data'])) $data['data'] = [];
         if (empty($data['page'])) $data['page'] = 0;
+        if (!is_array($data['data'])) $data['data'] = [];
         return [
             'data' => $data['data'],
             'count' => $this->getCountData($data['page'])

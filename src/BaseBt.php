@@ -10,7 +10,7 @@ class BaseBt
     /**
      * 定义当前版本
      */
-    const VERSION = '1.0.4';
+    const VERSION = '1.0.5';
 
     /**
      * 配置

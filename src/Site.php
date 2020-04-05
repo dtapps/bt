@@ -25,7 +25,7 @@ class Site extends BaseBt
     {
         $url = '/data?action=getData';
         $p_data['tojs'] = 'site.get_list';
-        $p_data['table'] = 'site';
+        $p_data['table'] = 'sites';
         $p_data['limit'] = $limit;
         $p_data['p'] = $page;
         $p_data['search'] = $search;
@@ -37,6 +37,7 @@ class Site extends BaseBt
         $data = json_decode($result, true);
         if (empty($data['data'])) $data['data'] = [];
         if (empty($data['page'])) $data['page'] = 0;
+        if (!is_array($data['data'])) $data['data'] = [];
         return [
             'data' => $data['data'],
             'count' => $this->getCountData($data['page'])
