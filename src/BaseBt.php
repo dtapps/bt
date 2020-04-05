@@ -5,14 +5,24 @@
 
 namespace LiGuAngChUn\Bt;
 
-class Base
+class BaseBt
 {
+    /**
+     * 定义当前版本
+     */
+    const VERSION = '1.0.1';
+
     /**
      * 配置
      * @var
      */
     public $config;
 
+    /**
+     * Base constructor.
+     * @param array $options
+     * @throws BtException
+     */
     public function __construct(array $options)
     {
         if (empty($options['key'])) throw new BtException('请检查配置 接口密钥：[key]，示例：x0m1NM1yumUVTyzLrpoJ4tgbVAZFzWVj');
@@ -62,5 +72,19 @@ class Base
             'request_token' => md5($now_time . '' . md5($this->config->get('key'))),
             'request_time' => $now_time
         );
+    }
+
+    /**
+     * 获取总数
+     * @param string $str
+     * @return false|int|string
+     */
+    protected function getCountData(string $str)
+    {
+        $start = strpos($str, "共");
+        $end = strpos($str, "条数据");
+        $count = substr($str, $start + 3, $end - $start - 3);
+        if (empty($count)) return 0;
+        return $count;
     }
 }

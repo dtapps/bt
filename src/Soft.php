@@ -12,16 +12,24 @@ namespace LiGuAngChUn\Bt;
  * Class Soft
  * @package LiGuAngChUn\Bt
  */
-class Soft extends Base
+class Soft extends BaseBt
 {
-    public function getList()
+    /**
+     * 获取软件列表
+     * @param int $page
+     * @param int $type
+     * @param int $force
+     * @param string $query
+     * @return mixed
+     */
+    public function getList($page = 1, $type = 0, $force = 0, $query = '')
     {
         $url = '/plugin?action=get_soft_list';
-        $p_data['p'] = 0;
-        $p_data['type'] = 0;
+        $p_data['p'] = $page;
+        $p_data['type'] = $type;
         $p_data['tojs'] = 'soft.get_list';
-        $p_data['force'] = 0;// 是否更新列表 1=是 0=否
-        $p_data['query'] = ''; // 搜索
+        $p_data['force'] = $force;// 是否更新列表 1=是 0=否
+        $p_data['query'] = $query; // 搜索
         //请求面板接口
         $result = $this->HttpPostCookie($url, $p_data);
         //解析JSON数据

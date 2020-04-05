@@ -11,7 +11,7 @@ namespace LiGuAngChUn\Bt;
  * Class Files
  * @package LiGuAngChUn\Bt
  */
-class Files extends Base
+class Files extends BaseBt
 {
 
 }

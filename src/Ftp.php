@@ -11,7 +11,7 @@ namespace LiGuAngChUn\Bt;
  * Class Ftp
  * @package LiGuAngChUn\Bt
  */
-class Ftp extends Base
+class Ftp extends BaseBt
 {
 
 }

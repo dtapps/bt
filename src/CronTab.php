@@ -11,7 +11,7 @@ namespace LiGuAngChUn\Bt;
  * Class CronTab
  * @package LiGuAngChUn\Bt
  */
-class CronTab extends Base
+class CronTab extends BaseBt
 {
     /**
      * 获取网站列表
@@ -24,6 +24,10 @@ class CronTab extends Base
         //请求面板接口
         $result = $this->HttpPostCookie($url, $p_data);
         //解析JSON数据
-        return json_decode($result, true);
+        $data = json_decode($result, true);
+        return [
+            'data' => $data['data'],
+            'orderOpt' => $data['orderOpt']
+        ];
     }
 }

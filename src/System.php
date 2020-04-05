@@ -11,7 +11,7 @@ namespace LiGuAngChUn\Bt;
  * Class System
  * @package LiGuAngChUn\Bt
  */
-class System extends Base
+class System extends BaseBt
 {
     /**
      * 获取硬盘信息

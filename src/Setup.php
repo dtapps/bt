@@ -11,7 +11,7 @@ namespace LiGuAngChUn\Bt;
  * Class Setup
  * @package LiGuAngChUn\Bt
  */
-class Setup extends Base
+class Setup extends BaseBt
 {
     /**
      * 获取消息通道
