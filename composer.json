@@ -1,6 +1,11 @@
 {
   "name": "liguangchun/bt",
-  "description": "Api for BT",
+  "description": "宝塔控制面板PHP扩展包",
+  "keywords": [
+    "liguangchun",
+    "bt"
+  ],
+  "time": "2020-04-07",
   "type": "library",
   "license": "MIT",
   "authors": [
