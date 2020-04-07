@@ -7,10 +7,10 @@
     {
       "name": "Chaim",
       "email": "gc@dtapp.net",
-      "homepage": "https://www.liguangchun.cn"
+      "homepage": "https://www.dtapp.net"
     }
   ],
-  "homepage": "https://www.liguangchun.cn",
+  "homepage": "https://www.dtapp.net",
   "require": {
     "php": ">=7.0",
     "ext-json": "*",
@@ -18,13 +18,13 @@
   },
   "autoload": {
     "psr-4": {
-      "LiGuAngChUn\\Bt\\": "src"
+      "dtApp\\Bt\\": "src"
     }
   },
   "repositories": {
     "0": {
       "type": "composer",
-      "url": "https://packagist.liguangchun.cn"
+      "url": "https://packagist.dtapp.net"
     },
     "packagist": {
       "type": "composer",
