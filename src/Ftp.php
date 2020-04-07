@@ -14,12 +14,12 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-namespace dtApp\Bt;
+namespace DtApp\Bt;
 
 /**
  * FTP管理
  * Class Ftp
- * @package dtApp\Bt
+ * @package DtApp\Bt
  */
 class Ftp extends BaseBt
 {

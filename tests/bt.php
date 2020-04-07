@@ -14,9 +14,9 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-use dtApp\Bt\BtException;
-use dtApp\Bt\Firewall;
-use dtApp\Bt\Soft;
+use DtApp\Bt\BtException;
+use DtApp\Bt\Firewall;
+use DtApp\Bt\Soft;
 
 require_once '../vendor/autoload.php';
 

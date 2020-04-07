@@ -14,14 +14,18 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-namespace dtApp\Bt;
+namespace DtApp\Bt;
 
+/**
+ * Class BaseBt
+ * @package DtApp\Bt
+ */
 class BaseBt
 {
     /**
      * 定义当前版本
      */
-    const VERSION = '1.0.7';
+    const VERSION = '1.0.8';
 
     /**
      * 配置

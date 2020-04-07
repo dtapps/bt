@@ -14,9 +14,12 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-namespace dtApp\Bt;
+namespace DtApp\Bt;
 
-
+/**
+ * Class DataArray
+ * @package DtApp\Bt
+ */
 class DataArray implements \ArrayAccess
 {
     /**

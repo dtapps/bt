@@ -14,12 +14,12 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-namespace dtApp\Bt;
+namespace DtApp\Bt;
 
 /**
  * 软件管理
  * Class Soft
- * @package dtApp\Bt
+ * @package DtApp\Bt
  */
 class Soft extends BaseBt
 {

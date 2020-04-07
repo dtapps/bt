@@ -14,12 +14,12 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-namespace dtApp\Bt;
+namespace DtApp\Bt;
 
 /**
  * 系统监控
  * Class Control
- * @package dtApp\Bt
+ * @package DtApp\Bt
  */
 class Control extends BaseBt
 {

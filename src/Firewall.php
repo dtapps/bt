@@ -14,12 +14,12 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-namespace dtApp\Bt;
+namespace DtApp\Bt;
 
 /**
  * 系统安全
  * Class firewall
- * @package dtApp\Bt
+ * @package DtApp\Bt
  */
 class Firewall extends BaseBt
 {

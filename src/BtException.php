@@ -14,12 +14,12 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-namespace dtApp\Bt;
+namespace DtApp\Bt;
 
 /**
  * 错误处理
  * Class BtException
- * @package dtApp\Bt
+ * @package DtApp\Bt
  */
 class BtException extends \Exception
 {
