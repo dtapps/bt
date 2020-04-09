@@ -19,7 +19,8 @@
   "require": {
     "php": ">=7.0",
     "ext-json": "*",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "liguangchun/curl": "^1.0"
   },
   "autoload": {
     "psr-4": {

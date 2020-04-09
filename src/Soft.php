@@ -16,6 +16,8 @@
 
 namespace DtApp\Bt;
 
+use DtApp\Curl\CurlException;
+
 /**
  * 软件管理
  * Class Soft
@@ -30,6 +32,7 @@ class Soft extends BaseBt
      * @param int $force
      * @param string $query
      * @return mixed
+     * @throws CurlException
      */
     public function getList($page = 1, $type = 0, $force = 0, $query = '')
     {
@@ -40,8 +43,6 @@ class Soft extends BaseBt
         $p_data['force'] = $force;// 是否更新列表 1=是 0=否
         $p_data['query'] = $query; // 搜索
         //请求面板接口
-        $result = $this->HttpPostCookie($url, $p_data);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, $p_data);
     }
 }

@@ -16,6 +16,8 @@
 
 namespace DtApp\Bt;
 
+use DtApp\Curl\CurlException;
+
 /**
  * 设置
  * Class Setup
@@ -26,13 +28,12 @@ class Setup extends BaseBt
     /**
      * 获取消息通道
      * @return mixed
+     * @throws CurlException
      */
     public function getNews()
     {
         $url = '/config?action=get_settings';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 }

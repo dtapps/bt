@@ -16,6 +16,8 @@
 
 namespace DtApp\Bt;
 
+use DtApp\Curl\CurlException;
+
 /**
  * 计划任务
  * Class CronTab
@@ -26,6 +28,7 @@ class CronTab extends BaseBt
     /**
      * 获取网站列表
      * @return mixed
+     * @throws CurlException
      */
     public function getDataList()
     {
@@ -33,11 +36,9 @@ class CronTab extends BaseBt
         $p_data['type'] = 'sites';
         //请求面板接口
         $result = $this->HttpPostCookie($url, $p_data);
-        //解析JSON数据
-        $data = json_decode($result, true);
         return [
-            'data' => $data['data'],
-            'orderOpt' => $data['orderOpt']
+            'data' => $result['data'],
+            'orderOpt' => $result['orderOpt']
         ];
     }
 }

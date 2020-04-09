@@ -16,6 +16,8 @@
 
 namespace DtApp\Bt;
 
+use DtApp\Curl\CurlException;
+
 /**
  * 系统安全
  * Class firewall
@@ -28,6 +30,7 @@ class Firewall extends BaseBt
      * @param int $page
      * @param int $limit
      * @return mixed
+     * @throws CurlException
      */
     public function getList($page = 1, $limit = 10)
     {
@@ -40,14 +43,12 @@ class Firewall extends BaseBt
         $p_data['order'] = 'id desc';
         //请求面板接口
         $result = $this->HttpPostCookie($url, $p_data);
-        //解析JSON数据
-        $data = json_decode($result, true);
-        if (empty($data['data'])) $data['data'] = [];
-        if (empty($data['page'])) $data['page'] = 0;
-        if (!is_array($data['data'])) $data['data'] = [];
+        if (empty($result['data'])) $result['data'] = [];
+        if (empty($result['page'])) $result['page'] = 0;
+        if (!is_array($result['data'])) $result['data'] = [];
         return [
-            'data' => $data['data'],
-            'count' => $this->getCountData($data['page'])
+            'data' => $result['data'],
+            'count' => $this->getCountData($result['page'])
         ];
     }
 
@@ -56,6 +57,7 @@ class Firewall extends BaseBt
      * @param int $page
      * @param int $limit
      * @return mixed
+     * @throws CurlException
      */
     public function getLog($page = 1, $limit = 10)
     {
@@ -68,14 +70,12 @@ class Firewall extends BaseBt
         $p_data['order'] = 'id desc';
         //请求面板接口
         $result = $this->HttpPostCookie($url, $p_data);
-        //解析JSON数据
-        $data = json_decode($result, true);
-        if (empty($data['data'])) $data['data'] = [];
-        if (empty($data['page'])) $data['page'] = 0;
-        if (!is_array($data['data'])) $data['data'] = [];
+        if (empty($result['data'])) $result['data'] = [];
+        if (empty($result['page'])) $result['page'] = 0;
+        if (!is_array($result['data'])) $result['data'] = [];
         return [
-            'data' => $data['data'],
-            'count' => $this->getCountData($data['page'])
+            'data' => $result['data'],
+            'count' => $this->getCountData($result['page'])
         ];
     }
 }

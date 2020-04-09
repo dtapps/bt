@@ -16,6 +16,8 @@
 
 namespace DtApp\Bt;
 
+use DtApp\Curl\CurlException;
+
 /**
  * 系统监控
  * Class Control
@@ -29,6 +31,7 @@ class Control extends BaseBt
      * @param int $start_time 开始时间
      * @param int $end_time 结束时间
      * @return mixed
+     * @throws CurlException
      */
     public function getInfo($type = 'GetCpuIo', $start_time = 0, $end_time = 0)
     {
@@ -36,8 +39,6 @@ class Control extends BaseBt
         if (empty($end_time)) $end_time = time();
         $url = "/ajax?action={$type}&start={$start_time}&end={$end_time}";
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 }

@@ -16,6 +16,9 @@
 
 namespace DtApp\Bt;
 
+use DtApp\Curl\BtCn;
+use DtApp\Curl\CurlException;
+
 /**
  * Class BaseBt
  * @package DtApp\Bt
@@ -25,7 +28,7 @@ class BaseBt
     /**
      * 定义当前版本
      */
-    const VERSION = '1.0.8';
+    const VERSION = '1.0.9';
 
     /**
      * 配置
@@ -47,14 +50,18 @@ class BaseBt
 
     /**
      * 发起POST请求
-     * @param String $url 目标网填，带http://
-     * @param array $data 欲提交的数据
-     * @param int $timeout
-     * @return string
+     * @param String $url 网址
+     * @param array $data 数据
+     * @param bool $is_json 是否返回Json格式
+     * @return bool|mixed|string
+     * @throws CurlException
      */
-    protected function HttpPostCookie($url, $data = [], $timeout = 60)
+    protected function HttpPostCookie($url, $data = [], $is_json = true)
     {
-        $p_data = $this->GetKeyData();
+        $config = [
+            'bt_panel' => $this->config->get('panel'),
+            'bt_key' => $this->config->get('key')
+        ];
         //定义cookie保存位置
         $file = __DIR__ . '/../cookie/';
         $cookie_file = $file . md5($this->config->get('panel')) . '.cookie';
@@ -63,32 +70,8 @@ class BaseBt
             $fp = fopen($cookie_file, 'w+');
             fclose($fp);
         }
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->config->get('panel') . $url);
-        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, array_merge($p_data, $data));
-        curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file);
-        curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $output = curl_exec($ch);
-        curl_close($ch);
-        return $output;
-    }
-
-    /**
-     * 构造带有签名的关联数组
-     */
-    private function GetKeyData()
-    {
-        $now_time = time();
-        return array(
-            'request_token' => md5($now_time . '' . md5($this->config->get('key'))),
-            'request_time' => $now_time
-        );
+        $BtCn = new BtCn($config);
+        return $BtCn->httpPost($url, $data, $cookie_file, 60, $is_json);
     }
 
     /**

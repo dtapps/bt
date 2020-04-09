@@ -16,6 +16,8 @@
 
 namespace DtApp\Bt;
 
+use DtApp\Curl\CurlException;
+
 /**
  * 系统信息
  * Class System
@@ -26,91 +28,84 @@ class System extends BaseBt
     /**
      * 获取硬盘信息
      * @return mixed
+     * @throws CurlException
      */
     public function getDiskInfo()
     {
         $url = '/system?action=GetDiskInfo';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 
     /**
      * 获取信息系统
      * @return mixed
+     * @throws CurlException
      */
     public function getSystemTotal()
     {
         $url = '/system?action=GetSystemTotal';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 
     /**
      * 获取用户信息
      * @return mixed
+     * @throws CurlException
      */
     public function getUserInfo()
     {
         $url = '/ssl?action=GetUserInfo';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 
     /**
      * 获取网络信息
      * @return mixed
+     * @throws CurlException
      */
     public function getNetWork()
     {
         $url = '/system?action=GetNetWork';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 
     /**
      * 获取插件信息
      * @return mixed
+     * @throws CurlException
      */
     public function getPlugin()
     {
         $url = '/plugin?action=get_index_list';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 
     /**
      * 获取软件信息
      * @return mixed
+     * @throws CurlException
      */
     public function getSoft()
     {
         $url = '/plugin?action=get_soft_list';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 
     /**
      * 获取更新信息
      * @return mixed
+     * @throws CurlException
      */
     public function getUpdatePanel()
     {
         $url = '/ajax?action=UpdatePanel';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 }

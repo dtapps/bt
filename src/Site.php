@@ -16,6 +16,8 @@
 
 namespace DtApp\Bt;
 
+use DtApp\Curl\CurlException;
+
 /**
  * 网站管理
  * Class Site
@@ -30,6 +32,7 @@ class Site extends BaseBt
      * @param string $search
      * @param int $type
      * @return mixed
+     * @throws CurlException
      */
     public function getList($page = 1, $limit = 15, $search = '', $type = -1)
     {
@@ -43,27 +46,24 @@ class Site extends BaseBt
         $p_data['type'] = $type;
         //请求面板接口
         $result = $this->HttpPostCookie($url, $p_data);
-        //解析JSON数据
-        $data = json_decode($result, true);
-        if (empty($data['data'])) $data['data'] = [];
-        if (empty($data['page'])) $data['page'] = 0;
-        if (!is_array($data['data'])) $data['data'] = [];
+        if (empty($result['data'])) $result['data'] = [];
+        if (empty($result['page'])) $result['page'] = 0;
+        if (!is_array($result['data'])) $result['data'] = [];
         return [
-            'data' => $data['data'],
-            'count' => $this->getCountData($data['page'])
+            'data' => $result['data'],
+            'count' => $this->getCountData($result['page'])
         ];
     }
 
     /**
      * 获取网站分类
      * @return mixed
+     * @throws CurlException
      */
     public function getTypes()
     {
         $url = '/site?action=get_site_types';
         //请求面板接口
-        $result = $this->HttpPostCookie($url, []);
-        //解析JSON数据
-        return json_decode($result, true);
+        return $this->HttpPostCookie($url, []);
     }
 }
