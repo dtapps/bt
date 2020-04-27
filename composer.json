@@ -20,11 +20,12 @@
     "php": ">=7.0",
     "ext-json": "*",
     "ext-curl": "*",
+    "topthink/framework": "^6.0.0",
     "liguangchun/curl": "^1.0"
   },
   "autoload": {
     "psr-4": {
-      "DtApp\\Bt\\": "src"
+      "DtApp\\Think\\Bt\\": "src"
     }
   },
   "repositories": {

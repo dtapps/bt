@@ -1,7 +1,7 @@
 <?php
 
 // +----------------------------------------------------------------------
-// | 宝塔PHP扩展包
+// | 宝塔ThinkPhP6扩展包
 // +----------------------------------------------------------------------
 // | 版权所有 2017~2020 [ https://www.dtapp.net ]
 // +----------------------------------------------------------------------
@@ -14,7 +14,7 @@
 // | Packagist 地址 ：https://packagist.org/packages/liguangchun/bt
 // +----------------------------------------------------------------------
 
-namespace DtApp\Bt;
+namespace DtApp\Think\Bt;
 
 use DtApp\Curl\BtCn;
 use DtApp\Curl\CurlException;
@@ -28,7 +28,7 @@ class BaseBt
     /**
      * 定义当前版本
      */
-    const VERSION = '1.0.10';
+    const VERSION = '1.0.1';
 
     /**
      * 配置
@@ -56,16 +56,16 @@ class BaseBt
      * @return bool|mixed|string
      * @throws CurlException
      */
-    protected function HttpPostCookie(string $url,array $data = [],bool $is_json = true)
+    protected function HttpPostCookie(string $url, array $data = [], bool $is_json = true)
     {
         $config = [
             'bt_panel' => $this->config->get('panel'),
             'bt_key' => $this->config->get('key')
         ];
         //定义cookie保存位置
-        $file = __DIR__ . '/../cookie/';
+        $file = app()->getRootPath() . 'runtime/dtapp/bt/cookie/';
         $cookie_file = $file . md5($this->config->get('panel')) . '.cookie';
-        is_dir($file) OR mkdir($file, 0777, true);
+        is_dir($file) or mkdir($file, 0777, true);
         if (!file_exists($cookie_file)) {
             $fp = fopen($cookie_file, 'w+');
             fclose($fp);
