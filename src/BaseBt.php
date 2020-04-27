@@ -28,7 +28,7 @@ class BaseBt
     /**
      * 定义当前版本
      */
-    const VERSION = '1.0.9';
+    const VERSION = '1.0.10';
 
     /**
      * 配置
@@ -50,13 +50,13 @@ class BaseBt
 
     /**
      * 发起POST请求
-     * @param String $url 网址
+     * @param string $url 网址
      * @param array $data 数据
      * @param bool $is_json 是否返回Json格式
      * @return bool|mixed|string
      * @throws CurlException
      */
-    protected function HttpPostCookie($url, $data = [], $is_json = true)
+    protected function HttpPostCookie(string $url,array $data = [],bool $is_json = true)
     {
         $config = [
             'bt_panel' => $this->config->get('panel'),

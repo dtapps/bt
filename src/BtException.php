@@ -16,12 +16,14 @@
 
 namespace DtApp\Bt;
 
+use Exception;
+
 /**
  * 错误处理
  * Class BtException
  * @package DtApp\Bt
  */
-class BtException extends \Exception
+class BtException extends Exception
 {
     public function errorMessage()
     {

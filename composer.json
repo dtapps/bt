@@ -28,10 +28,6 @@
     }
   },
   "repositories": {
-    "0": {
-      "type": "composer",
-      "url": "https://packagist.dtapp.net"
-    },
     "packagist": {
       "type": "composer",
       "url": "https://mirrors.aliyun.com/composer/"
